@@ -1,16 +1,26 @@
-function cariOptimal(nilai){
-    let uang = [1000, 2000, 5000, 10000, 20000, 50000, 100000];
-    let kantong = [];
-    let i = uang.length - 1;
-    while (i>=1){
-        while (nilai >= uang[i]){
-            nilai = nilai - uang[i];
-            kantong.push(uang[i]);
-        }
-        i--;
-    }
-    return kantong;
-}
+let Tonasenya = [21, 22, 23, 24];
+
+function inputTonase(inputnya, Tonase){
+    let status;
     
-let duit = 93000
-console.log(cariOptimal(duit));
+    if (inputnya < Math.min(...Tonase)){
+        status = `Nilai '${inputnya}' kurang dari yang ditetapkan ${Tonase}`;
+    } else if (Tonase.includes(inputnya)){
+        status = `Ok sip ${inputnya} berada dalam ${Tonase}`;
+    } else {
+        while(inputnya > Math.max(...Tonase)){
+            Tonase = Tonase.map(x => x*2);
+            if (inputnya < Math.min(...Tonase)){
+                status = `Nilai '${inputnya}' kurang dari yang ditetapkan ${Tonase}`;
+                break;
+            } else if (Tonase.includes(inputnya)){
+                status = `Ok sip ${inputnya} berada dalam ${Tonase}`;
+                break;
+            }
+        }
+    }
+    return status;
+}
+
+console.log(inputTonase(21, Tonasenya));
+

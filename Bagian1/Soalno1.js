@@ -1,11 +1,11 @@
-let A = [
+let arrayA = [
     {code:"M", nama: "Mango"},
     {code:"A", nama: "Apple"},
     {code:"Me", nama: "Melon"},
     {code:"O", nama: "Orange"},
     {code:"P", nama: "Pineapple"}
 ];
-let B = [
+let arrayB = [
     {code:"M", nama: "Mango"},
     {code:"P", nama: "Pineapple"},
     {code:"Pe", nama: "Pears"},
@@ -15,7 +15,7 @@ let B = [
 function getIrisan(A, B){
     let irisan = [];
     let namaA = A.map(el => el.nama);
-    for(elB of B){
+    for(let elB of B){
         if(namaA.includes(elB.nama)){
             irisan.push(elB);
         }
@@ -26,7 +26,7 @@ function getIrisan(A, B){
 function getGabungan(A, B){
     let irisan = [...A];
     let namaA = A.map(el => el.nama);
-    for(elB of B){
+    for(let elB of B){
         if(!namaA.includes(elB.nama)){
             irisan.push(elB);
         }
@@ -37,7 +37,7 @@ function getGabungan(A, B){
 function getUniqueA(A, B){
     let uniqueA = [];
     let namaB = B.map(el => el.nama);
-    for(elA of A){
+    for(let elA of A){
         if(!namaB.includes(elA.nama)){
             uniqueA.push(elA);
         }
@@ -45,6 +45,6 @@ function getUniqueA(A, B){
     return uniqueA;
 }
 
-console.log(getIrisan(A, B));
-console.log(getGabungan(A, B));
-console.log(getUniqueA(A, B));
+console.log(getIrisan(arrayA, arrayB));
+console.log(getGabungan(arrayA, arrayB));
+console.log(getUniqueA(arrayA, arrayB));
